@@ -46,7 +46,7 @@ long long timespecToNanos(struct timespec ts)
   return (ts.tv_sec / NANOSECONDS + ts.tv_nsec);
 }
 
-double rk4(double f(double t, double x), double h, double tn, double yn)
+double rk4(double f(double t, double y), double h, double tn, double yn)
 {
   double k1, k2, k3, k4;
 
@@ -58,9 +58,9 @@ double rk4(double f(double t, double x), double h, double tn, double yn)
   return yn + (h/6) * (k1 + 2*k2 + 2*k3 + k4);
 }
 
-double expDot(double t, double x)
+double expDot(double t, double y)
 {
-  return -x;
+  return -y;
 }
 
 int main()
