@@ -36,7 +36,7 @@ The closed form solution of this ODE IVP gives `y(t) = e^-t`, if you feel the ne
 
 The benchmark uses a timestep of `h = 1e-3`, or one millisecond.  It moves through 1e7 steps, or 10000 seconds. It does this 100 times, and measures the minimum, maximum, and average run times as well as the standard deviation (Criterion also puts an upper bound and lower bound on sigma; I'm not 100% sure what this means but I assume it's some sort of jitter measurement).
 
-I don't use compiler optimizations flags because I want to be fair; I can pass `-O2` to GHC and not see anything suspicious, but if I pass `-O2` to clang it just obliterates the RK calculations entirely because I never actually use the heap-space that I store the results in for anything useful.
+I use `-O2` optimizations with clang and GHC.
 
 ## Results
 
