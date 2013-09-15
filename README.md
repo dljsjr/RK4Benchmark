@@ -8,11 +8,13 @@ This is an OS X benchmark.  The build script uses clang for the C algorithm, and
 
 ## Requirements/Dependencies
 
-Requires OS X, a modern GHC (7.6 or higher), and [cabal-dev](http://hackage.haskell.org/package/cabal-dev).
+Requires OS X, a modern GHC (7.6 or higher)/Haskell Platform, and Cabal/cabal-install >= 1.18.0 (project is built around the new cabal sandbox).
 
 ## Building
 
-Make sure `buildAll.sh` is executable, and then run it.  It will use cabal-dev to pull in stream-fusion and criterion in to the sandbox and then build the binary for the benchmark, which will be under `hsrc/cabal-dev/bin`.
+`cd` in to the `hsrc` directory, run `cabal sandbox init`.
+
+Go back to the main project directory, make sure `buildAll.sh` is executable, and then run it.  It will use cabal to pull in stream-fusion and criterion in to the sandbox and then build the binary for the benchmark, which will be under `hsrc/.cabal-sandbox/bin`.
 
 It will also build the C benchmark, which will be under `csrc/`.
 

@@ -72,10 +72,20 @@ int main()
   long long* times = malloc(sizeof(long long) * BENCHMARK_ITERATIONS);
   struct timespec start, end;
 
+  FILE* devNull;
+
   h = 1e-3;
   y0 = 1.0;
   t0 = 0.0;
   yn = y0;
+
+  devNull = fopen("/dev/null", "w");
+
+  if(devNull == NULL)
+  {
+    fprintf(stderr, "Couldn't open /dev/null, something is totally wrong.");
+    exit(1);
+  }
 
   printf("\nBeginning C Benchmark...\n");
 
@@ -97,7 +107,14 @@ int main()
     subTime(&end, &start);
 
     times[i] = timespecToNanos(end);
+
+    fprintf(devNull, "%lf\n", results[ITERATIONS-1]);
+
+    y0 = yn = 1.0;
+    t0 = 0.0;
   }
+
+  fclose(devNull);
 
   max = mean = stddev = sum = sumSquares = 0;
   min = times[0];
@@ -106,7 +123,7 @@ int main()
   {
     if(times[i] > max)
       max = times[i];
-    
+
     if(times[i] < min)
       min = times[i];
 

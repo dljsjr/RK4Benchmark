@@ -12,9 +12,10 @@ license-file:        LICENSE
 -- copyright:           
 -- category:            
 build-type:          Simple
-cabal-version:       >=1.8
+cabal-version:       >=1.18.0
 
 executable RK4BenchmarkHS
   main-is:             RKOpt.hs            
   -- other-modules:       
   build-depends:       base ==4.6.*, stream-fusion ==0.1.2.*, criterion ==0.8.*
+  default-language:    Haskell2010

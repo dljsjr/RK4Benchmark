@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd hsrc/cabal-dev/bin
+cd hsrc/.cabal-sandbox/bin
 ./RK4BenchmarkHS
 cd ../../../csrc
 ./RK4BenchmarkC

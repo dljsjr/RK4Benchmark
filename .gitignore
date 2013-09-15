@@ -2,3 +2,5 @@ cabal-dev/
 dist/
 RK4BenchmarkHS
 RK4BenchmarkC
+.cabal-sandbox
+cabal.sandbox.config

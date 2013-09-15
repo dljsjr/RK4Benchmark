@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd hsrc
-cabal-dev install
+cabal install
 cd ..
 cd csrc
-clang RK.c -o RK4BenchmarkC
+clang -O2 RK.c -o RK4BenchmarkC
