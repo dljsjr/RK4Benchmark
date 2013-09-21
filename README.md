@@ -10,6 +10,21 @@ This is an OS X benchmark.  The build script uses clang for the C algorithm, and
 
 Requires OS X, a modern GHC (7.6 or higher)/Haskell Platform, and Cabal/cabal-install >= 1.18.0 (project is built around the new cabal sandbox).
 
+## Getting started with a Haskell installation
+
+I'd suggest grabbing the Haskell Platform ("Haskell with batteries included").  You can download a binary installer [here](http://www.haskell.org/platform/), or you can also use [homebrew](http://brew.sh/) and invoke `brew install haskell-platform`. I prefer homebrew, the Haskell people suggest the binary installer. 
+
+If you're installing Haskell Platform for the first time, you're in a good place.  I highly suggest that the only packages that you ever install globally be Cabal now that 1.18 is out (it comes with sandboxes).  Cabal is incredibly prone to getting your system in to an irreperable state of dependency hell.  A big part of this is because even though it tries to act like it sometimes, [cabal is not a package manager](http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-package-manager/). You've been warned.
+
+Once you've installed Haskell Platform, the next step should be to upgrade your Cabal to 1.18 to get the power of sandboxes:
+
+    $ cabal update
+    $ cabal install Cabal-1.18.0 cabal-install-1.18.0
+
+I'd suggest [reading up on sandboxes](http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html) and never installing anything globally from this point on. For your health.
+
+![Ya Dingus](http://d.pr/i/8BoB+)
+
 ## Building
 
 `cd` in to the `hsrc` directory, run `cabal sandbox init`.
