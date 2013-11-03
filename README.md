@@ -55,7 +55,9 @@ I use `-O2` optimizations with clang and GHC.
 
 ## Results
 
-Currently, the Haskell implementation is actually slightly faster.  Only very slightly, though.
+<del>Currently, the Haskell implementation is actually slightly faster.  Only very slightly, though.</del>
+
+As of OS X 10.9 Mavericks, with whatever updates to LLVM/Clang have been pushed out by Apple, clang is faster by a hair.  On my machine (Early 2011 15" MBP with 2.3GHz Core i7-2820QM), the C Benchmark runs in around 2.47s while the Haskell benchmark runs in around 2.7s.  The Haskell benchmark hasn't gotten any slower; the C one just got faster with no changes.
 
 Anecdotally, I've come to this take-away:  The optimizations required to make the Haskell code run just as fast as the C code were trivial, not time consuming, easy to understand, and most importantly: If you already grok the Haskell syntax, then understanding what the optimizations are doing is relatively trivial.  Compared to the sort of bit fiddling, pointer slinging wizardry that goes in to making C code crazy fast, I'd pick tuning Haskell to be like naive C over tuning C with sacrifices to the Old Ones any day of the week.  I quite simply have better things to do with my time than become a Artificer of the Arcane C Arts.
 
