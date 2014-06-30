@@ -12,8 +12,9 @@ rk4 y' !h !t !y = y + (h/6) * (k1 + 2*k2 + 2*k3 + k4)
 iterateRK :: (Double -> Double -> Double) -> Double -> Double -> Double -> [Double]
 iterateRK y' h = curry $ S.unfoldr $ \(!t0, !y0) -> Just (y0, (t0 + h, rk4 y' h t0 y0))
 
+benchmarkRK :: Int -> [Double]
 benchmarkRK n =
-  let y' t y  = -y
+  let y' _ y  = -y
       h       = 1e-3
       y0      = 1.0
       t0      = 0
